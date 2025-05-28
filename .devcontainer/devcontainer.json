@@ -1,24 +1,33 @@
 {
   // Name this configuration
   "name": "Codespace for Skills!",
-  // Use the base codespace image
+  // Microsoft latest base docker image
   "image": "mcr.microsoft.com/vscode/devcontainers/universal:latest",
-
+  // "codespace" is the standard user used in Microsoft's devcontainers to avoid using root
   "remoteUser": "codespace",
+  // Enable default command 
   "overrideCommand": false,
   
- // Add the IDs of extensions you want installed when the container is created.
+ // Configuration of the developer environment
  "customizations": {
+
      "vscode": {
+       // Extensions you want installed when the container is created
          "extensions": [
              "GitHub.copilot"
          ]
      },
+   
+   // Codespaces behavior
      "codespaces": {
+       // Open automatically in the editor when the Codespace starts
          "openFiles": [
              "codespace.md"
          ]
      }
+   
  },
+  
+  // Shell command executed once the container is created and ready
  "postCreateCommand": "echo '# Writing code upon codespace creation!'  >> codespace.md"
 }
